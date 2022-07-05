@@ -8,8 +8,11 @@ I am currently working on adding more functionality to it, such as:
 # Usage 
 ```bash 
 ./gpgkeys.py init # Initializes the database in the same folder that it is stored. 
+
 ./gpgkeys.py view # Displays the entire database entries
+
 ./gpgkeys.py view [<repository_name>] # Displays the database entry for the repository name that was specificied
+
 ./gpgkeys.py <gpg_key> <repository_name> # Stores the gpgkeys specified into the database. 
 ```
 
@@ -38,4 +41,7 @@ cd gpgkeys/dist/
 # Copy the gpgkeys file into the directory. 
 cp ./gpgkeys ~/.scripts/
 
+# Step Five (Optional): 
+# If you want to use the gpgkeys.py: 
+pip install -r requirements.txt
 ```
