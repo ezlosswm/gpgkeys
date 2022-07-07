@@ -40,7 +40,7 @@ def log(gpg_key, repo_name):
 def view(repo_name=None):
     conn = db.connect("gpgkeys.db")
     cur = conn.cursor()
-    if repo_name: 
+    if repo_name:
 
         sql = '''
         select * from gpgkeys
