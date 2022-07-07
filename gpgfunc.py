@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Takes the gpgkey as an argument and stores it locally into a database
 
 import sqlite3 as db
 from datetime import datetime
