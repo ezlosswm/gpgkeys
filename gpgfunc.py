@@ -9,8 +9,9 @@ DATE = str(datetime.now())
 def init():
     conn = db.connect("gpgkeys.db")
     cur = conn.cursor()
+
     sql = '''
-    create table if not exists gpgkeys (
+    CREATE TABLE IF NOT EXISTS gpgkeys (
         gpg_key string,
         repo string,
         time string
@@ -24,12 +25,10 @@ def init():
 def log(gpg_key, repo_name):
     conn = db.connect("gpgkeys.db")
     cur = conn.cursor()
+    # data = (gpg_key, repo, DATE)
     
-    sql = '''
-    insert into gpgkeys values (
-        '{}',
-        '{}',
-        '{}'
+    sql = '''insert into gpgkeys values (
+        '{}', '{}', '{}'
     )
     '''.format(gpg_key, repo_name, DATE)
 
@@ -40,19 +39,31 @@ def log(gpg_key, repo_name):
 def view(repo_name=None):
     conn = db.connect("gpgkeys.db")
     cur = conn.cursor()
+
     if repo_name:
 
         sql = '''
-        select * from gpgkeys
+        select * from gpgkeys where repo = '{}'
         '''.format(repo_name)
     else:
         sql = '''
         select * from gpgkeys
-        '''.format(repo_name)
+        '''
 
     cur.execute(sql)
     results = cur.fetchall()
 
+    
+
     return results
 
+def delete(repo_name):
+    conn = db.connect("gpgkeys.db")
+    cur = conn.cursor()
 
+    sql = '''
+    delete from gpgkeys where repo = '{}'
+    '''.format(repo_name)
+
+    cur.execute(sql)
+    conn.commit()
