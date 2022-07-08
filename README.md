@@ -2,8 +2,8 @@
 GPG Keys is a command line tool created using Python3. It was originally intended to save Github Personal access token to make them easily accessible from your local machine. 
 
 I am currently working on adding more functionality to it, such as: 
-- Deleting a key that was accidently entered.  
-- Automatically purging expired keys. 
+- [x] Deleting a key that was accidently entered.  
+- [ ] Automatically purging expired keys. 
 
 # Usage 
 ```bash 
@@ -14,6 +14,8 @@ I am currently working on adding more functionality to it, such as:
 ./gpgkeys.py view [<repository_name>] # Displays the database entry for the repository name that was specificied
 
 ./gpgkeys.py <gpg_key> <repository_name> # Stores the gpgkeys specified into the database. 
+
+./gpgkeys.py delete <repository_name> # Deletes the access token stored for the specifed repository name.
 ```
 
 # What's Included?
@@ -25,23 +27,26 @@ A number of files is included to facilitate customizability and flexibility.
 # Installation
 
 ```Bash 
-# Step One: 
 # Clone the repository
 git clone https://github.com/EzlosSWM/gpgkeys.git
 
-# Step One (B) (Optional): 
+# Moving into the gpgkeys directory: 
+cd gpgkeys/
+
+# Installing Requirements: 
+pip install -r requirements.txt
+
+
+
+# Alternatively (After cloning the repository) 
 # Create a folder to store scripts
 mkdir ~/.scripts/
 
-# Step Three: 
-# Move into the "dist/" folder 
-cd gpgkeys/dist/
-
-# Step Four: 
 # Copy the gpgkeys file into the directory. 
-cp ./gpgkeys ~/.scripts/
+cp gpgkeys/dist/gpgkeys ~/.scripts/
 
-# Step Five (Optional): 
-# If you want to use the gpgkeys.py: 
-pip install -r requirements.txt
+# Appending the ~/.scripts directory to your PATH
+export PATH=$PATH:$HOME/.scripts/
 ```
+
+*Note: To make the PATH permanent, just add the export statement to your .bashrc or .zshrc*
