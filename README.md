@@ -13,7 +13,7 @@ I am currently working on adding more functionality to it, such as:
 
 ./gpgkeys.py view [<repository_name>] # Displays the database entry for the repository name that was specificied
 
-./gpgkeys.py <gpg_key> <repository_name> # Stores the gpgkeys specified into the database. 
+./gpgkeys.py add <gpg_key> <repository_name> # Stores the gpgkeys specified into the database. 
 
 ./gpgkeys.py delete <repository_name> # Deletes the access token stored for the specifed repository name.
 ```
